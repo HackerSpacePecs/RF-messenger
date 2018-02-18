@@ -1,0 +1,15 @@
+language: c
+sudo: false
+before_install:
+  - source <(curl -SLs https://raw.githubusercontent.com/adafruit/travis-ci-arduino/master/install.sh)
+  - git clone https://github.com/wonho-maker/Adafruit_SH1106 $HOME/arduino_ide/libraries/Adafruit_SH1106
+
+install:
+  - arduino --install-library "Keypad","Adafruit GFX Library"
+script:
+  - build_platform uno
+notifications:
+  email:
+    on_success: change
+    on_failure: change
+
